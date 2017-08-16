@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- {{}}从controller绑定到页面 -->
+  <h2>{{title}}</h2>
+  <p>
+    <!-- 在HTML里面写双引号"" -->
+    <!-- [(ngModel)]必须写成这样 -->
+    <!--[()] 双向绑定 -->
+    <input type="text" [(ngModel)]="title" />
+  </p>
+  <p>
+    <!--(): 从页面绑定到controller -->
+    <button ion-button (click)="showTitle()">test</button>
+  </p>
+  <p>
+    Selected:{{selectedHero.name}}
+  </p>
+  <ul>
+    <!-- 这个item的生命周期是在该li里 -->
+    <li *ngFor="let item of heros" (click)="Select(item)" tappable>
+      <p>【{{item.id}}】{{item.name}}</p>
+    </li>
+  </ul>
+</ion-content>
